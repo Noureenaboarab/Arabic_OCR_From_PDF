@@ -6,17 +6,18 @@ from PyPDF2 import PdfWriter, PdfReader
 import io
 
 # Path to the input PDF file. Modify at as needed
-filePath = '/content/i5.pdf'
+filePath = r"D:/Noureen/4th year/GRADUATION PROJECT/Books/books/Preprocessed_Books/Books/Gr.12-Term 1-history.pdf"
+poppler_path = r"C:/Program Files/poppler-24.08.0/Library/bin"  # Adjust this path to your poppler bin folder
 
-# Convert PDF to images
-doc = convert_from_path(filePath)
+doc = convert_from_path(filePath, poppler_path=poppler_path)
 
 # Extract file information
 path, fileName = os.path.split(filePath)
 fileBaseName, fileExtension = os.path.splitext(fileName)
 
 # Set Tesseract OCR command path
-pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
+pytesseract.pytesseract.tesseract_cmd = r'C:/Program Files/Tesseract-OCR/tesseract.exe'
+
 
 # Initialize PDF writer
 pdf_writer = PdfWriter()
